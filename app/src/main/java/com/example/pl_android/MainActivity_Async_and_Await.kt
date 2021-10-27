@@ -19,10 +19,11 @@ class MainActivity_Async_and_Await : AppCompatActivity() {
             val time = measureTimeMillis {
                 val answer1: Deferred<String> = async { networkCall1() }
                 val answer2: Deferred<String> = async { networkCall2() }
-                Log.e("LOG_TAG", "Answer1 is ${answer1.await()}")
-                Log.e("LOG_TAG", "Answer2 is ${answer2.await()}")
+                Log.e(LOG_TAG, "Answer1 is ${answer1.await()}")
+                Log.e(LOG_TAG, "Answer2 is ${answer2.await()}")
             }
-            Log.e("LOG_TAG", "Requests took $time ms.")
+
+            Log.e(LOG_TAG, "Requests took $time ms.")
         }
 
     }

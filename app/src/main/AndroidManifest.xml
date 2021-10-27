@@ -10,7 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PL_Android">
         <activity
+            android:name=".SecondActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".MainActivity_Suspend_Function"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".MainActivity_runBlocking"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".MainActivity_Coroutine_Contexts"
             android:exported="true">
         </activity>
         <activity
@@ -20,8 +35,13 @@
         <activity
             android:name=".MainActivity_Async_and_Await"
             android:exported="true">
+        </activity>
+        <activity
+            android:name=".MainActivity_lifecycleScope_and_viewModelScope"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
