@@ -15,6 +15,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         /**
+         * runBlocking - Kotlin Coroutines
+         * */
+
+        Log.e(LOG_TAG, "Before runBlocking")
+        runBlocking {
+            launch(Dispatchers.IO) {
+                delay(3000L)
+                Log.e(LOG_TAG, "Finished IO Coroutine 1")
+            }
+            launch(Dispatchers.IO) {
+                delay(3000L)
+                Log.e(LOG_TAG, "Finished IO Coroutine 2")
+            }
+            Log.e(LOG_TAG, "Start of runBlocking")
+            delay(5000L)
+            Log.e(LOG_TAG, "End of runBlocking")
+        }
+        Log.e(LOG_TAG, "After runBlocking")
+
+        /**
          * Coroutine Contexts - Kotlin Coroutines
          *
          *************************************************************************************************
@@ -32,18 +52,20 @@ class MainActivity : AppCompatActivity() {
          *                          thread, so if you start a coroutine and Unconfined that causes a span
          *                          function it will stay in the thread that the suspend function resumed
          * */
-//        GlobalScope.launch(newSingleThreadContext("MyThread")) {
+/*//        GlobalScope.launch(newSingleThreadContext("MyThread")) {
         GlobalScope.launch(Dispatchers.IO) {
             Log.e(LOG_TAG, "Starting coroutine in thread ${Thread.currentThread().name}")
             val answer = doNetworkCall()
 
             withContext(Dispatchers.Main) {
                 Log.e(LOG_TAG, "Setting text in thread ${Thread.currentThread().name}")
-                tvDummy.text= answer
+                tvDummy.text = answer
             }
-        }
+        }*/
 
-        // Suspend Functions - Kotlin Coroutines
+        /**
+         * Suspend Functions - Kotlin Coroutines
+         * */
 /*        GlobalScope.launch {
             delay(6000L)
             Log.e("LOG_TAG", "Coroutine says hello thread ${Thread.currentThread().name}")
